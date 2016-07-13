@@ -1,3 +1,9 @@
 *.d
 *.o
 .DS_Store
+*.iml
+*local*
+build/
+gen/
+.gradle/
+.idea/
