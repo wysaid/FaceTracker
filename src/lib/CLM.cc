@@ -181,7 +181,7 @@ void CLM::Write(ofstream &s)
   }return;
 }
 //=============================================================================
-void CLM::Read(ifstream &s,bool readType)
+void CLM::Read(istream &s,bool readType)
 {
   if(readType){int type; s >> type; assert(type == IO::CLM);}
   int n; s >> n; _pdm.Read(s); _cent.resize(n);_visi.resize(n);

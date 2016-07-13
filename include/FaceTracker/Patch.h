@@ -62,7 +62,7 @@ namespace FACETRACKER
     void Load(const char* fname);
     void Save(const char* fname);
     void Write(std::ofstream &s);
-    void Read(std::ifstream &s,bool readType = true);
+    void Read(std::istream &s,bool readType = true);
     void Init(int t, double a, double b, cv::Mat &W);
     void Response(cv::Mat &im,cv::Mat &resp);    
 
@@ -86,7 +86,7 @@ namespace FACETRACKER
     void Load(const char* fname);
     void Save(const char* fname);
     void Write(std::ofstream &s);
-    void Read(std::ifstream &s,bool readType = true);
+    void Read(std::istream &s,bool readType = true);
     void Init(std::vector<Patch> &p);
     void Response(cv::Mat &im,cv::Mat &resp);    
 

@@ -333,7 +333,7 @@ void PDM::ApplySimT(double a,double b,double tx,double ty,cv::Mat &pglobl)
   return;
 }
 //===========================================================================
-void PDM::Read(ifstream &s,bool readType)
+void PDM::Read(istream &s,bool readType)
 {
   if(readType){int type; s >> type; assert(type == IO::PDM);}
   IO::ReadMat(s,_V); IO::ReadMat(s,_E); IO::ReadMat(s,_M); 

@@ -107,7 +107,7 @@ void PAW::Write(ofstream &s)
   return;
 }
 //===========================================================================
-void PAW::Read(ifstream &s,bool readType)
+void PAW::Read(istream &s,bool readType)
 {
   if(readType){int type; s >> type; assert(type == IO::PAW);}
   s >> _nPix >> _xmin >> _ymin;

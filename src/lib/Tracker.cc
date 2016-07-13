@@ -58,6 +58,14 @@ void Tracker::Load(const char* fname)
 {
   ifstream s(fname); assert(s.is_open()); this->Read(s); s.close(); return;
 }
+//Add by wysaid. ==========================================================
+void Tracker::LoadFromData(const char* data)
+{
+    assert(data != nullptr);
+    istringstream stream(data);
+    this->Read(stream);
+    stream.clear();
+}
 //===========================================================================
 void Tracker::Save(const char* fname)
 {
@@ -72,7 +80,7 @@ void Tracker::Write(ofstream &s)
     << _simil[2] << " " << _simil[3] << " "; return;
 }
 //===========================================================================
-void Tracker::Read(ifstream &s,bool readType)
+void Tracker::Read(istream &s,bool readType)
 {
   if(readType){int type; s >> type; assert(type == IO::TRACKER);}
   _clm.Read(s); _fdet.Read(s); _fcheck.Read(s); IO::ReadMat(s,_rshape); 

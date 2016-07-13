@@ -129,7 +129,7 @@ void Patch::Write(ofstream &s)
   IO::WriteMat(s,_W); return;
 }
 //===========================================================================
-void Patch::Read(ifstream &s,bool readType)
+void Patch::Read(istream &s,bool readType)
 {
   if(readType){int type; s >> type; assert(type == IO::PATCH);}
   s >> _t >> _a >> _b; IO::ReadMat(s,_W); return;
@@ -217,7 +217,7 @@ void MPatch::Write(ofstream &s)
   for(int i = 0; i < (int)_p.size(); i++)_p[i].Write(s); return;
 }
 //===========================================================================
-void MPatch::Read(ifstream &s,bool readType)
+void MPatch::Read(istream &s,bool readType)
 {
   if(readType){int type; s >> type; assert(type == IO::MPATCH);}
   int n; s >> _w >> _h >> n; _p.resize(n);
@@ -242,3 +242,26 @@ void MPatch::Response(cv::Mat &im,cv::Mat &resp)
   }return;
 }
 //===========================================================================
+
+cv::Mat IO::LoadConByData(const char* data)
+{
+    assert(data != nullptr);
+    int i,n; char str[256]; char c; istringstream file(data);
+    while(1){file >> str; if(strncmp(str,"n_connections:",14) == 0)break;}
+    file >> n; cv::Mat con(2,n,CV_32S);
+    while(1){file >> c; if(c == '{')break;}
+    for(i = 0; i < n; i++)file >> con.at<int>(0,i) >> con.at<int>(1,i);
+    file.clear(); return con;
+}
+
+cv::Mat IO::LoadTriByData(const char* data)
+{
+    assert(data != nullptr);
+    int i,n; char str[256]; char c; istringstream file(data);
+    while(1){file >> str; if(strncmp(str,"n_tri:",6) == 0)break;}
+    file >> n; cv::Mat tri(n,3,CV_32S);
+    while(1){file >> c; if(c == '{')break;}
+    for(i = 0; i < n; i++)
+        file >> tri.at<int>(i,0) >> tri.at<int>(i,1) >> tri.at<int>(i,2);
+    file.clear(); return tri;
+}

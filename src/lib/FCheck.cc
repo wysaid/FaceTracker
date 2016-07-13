@@ -72,7 +72,7 @@ void FCheck::Write(ofstream &s)
   IO::WriteMat(s,_w); _paw.Write(s); return;
 }
 //===========================================================================
-void FCheck::Read(ifstream &s,bool readType)
+void FCheck::Read(istream &s,bool readType)
 {
   if(readType){int type; s >> type; assert(type == IO::FCHECK);}
   s >> _b; IO::ReadMat(s,_w); _paw.Read(s); 
@@ -121,7 +121,7 @@ void MFCheck::Write(ofstream &s)
   for(int i = 0; i < (int)_fcheck.size(); i++)_fcheck[i].Write(s); return;
 }
 //===========================================================================
-void MFCheck::Read(ifstream &s,bool readType)
+void MFCheck::Read(istream &s,bool readType)
 {
   if(readType){int type; s >> type; assert(type == IO::MFCHECK);}
   int n; s >> n; _fcheck.resize(n);

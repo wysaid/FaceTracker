@@ -94,6 +94,9 @@ namespace FACETRACKER
     /** Load tracker from model file */
     void Load(const char* fname);
 
+    //Add by wysaid.
+    void LoadFromData(const char* data);
+
     /** Save tracker to model file */
     void Save(const char* fname);
     
@@ -101,7 +104,7 @@ namespace FACETRACKER
     void Write(std::ofstream &s);
 
     /** Read tracking from file stream */
-    void Read(std::ifstream &s,bool readType = true);
+    void Read(std::istream &s,bool readType = true);
 
   private:
     cv::Mat gray_,temp_,ncc_,small_;

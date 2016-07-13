@@ -152,7 +152,7 @@ void FDet::Write(ofstream &s)
   }return;
 }
 //===========================================================================
-void FDet::Read(ifstream &s,bool readType)
+void FDet::Read(istream &s,bool readType)
 { 
   int i,j,k,l,n,m;
   if(readType){int type; s >> type; assert(type == IO::FDET);}

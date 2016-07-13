@@ -39,7 +39,7 @@
 ///////////////////////////////////////////////////////////////////////////////
 #ifndef __IO_h_
 #define __IO_h_
-#include <opencv/cv.h>
+#include <opencv/cv.hpp>
 #include <fstream>
 namespace FACETRACKER
 {
@@ -50,10 +50,14 @@ namespace FACETRACKER
   class IO{
   public:
     enum{PDM = 0,PAW,PATCH,MPATCH,CLM,FDET,FCHECK,MFCHECK,TRACKER};
-    static void ReadMat(std::ifstream& s,cv::Mat &M);
+    static void ReadMat(std::istream& s,cv::Mat &M);
     static void WriteMat(std::ofstream& s,cv::Mat &M);
     static cv::Mat LoadCon(const char* fname);
     static cv::Mat LoadTri(const char* fname);
+
+    //Add by wysaid
+    static cv::Mat LoadConByData(const char* data);
+    static cv::Mat LoadTriByData(const char* data);
   };
   //===========================================================================
 }
