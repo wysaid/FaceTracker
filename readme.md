@@ -12,7 +12,7 @@ It is available free for non-commercial use, and may be redistributed under thes
 
 Wrappers are available for:
 
-* Android: [facetrackerapp](https://github.com/ajdroid/facetrackerapp)
+* Android: [facetrackerapp](https://github.com/ajdroid/facetrackerapp) [FaceTracker-for-Android(fork)](https://github.com/wysaid/FaceTracker)
 * [openFrameworks](http://www.openframeworks.cc/): [ofxFaceTracker](https://github.com/kylemcdonald/ofxFaceTracker)
 * [Cinder](http://libcinder.org/): [ciFaceTracker](https://github.com/Hebali/ciFaceTracker)
 * Python: [pyfacetracker](https://bitbucket.org/amitibo/pyfacetracker)
